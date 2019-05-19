@@ -1,0 +1,174 @@
+body {
+  background-color: black;
+  font-family: 'Roboto', monospace;
+  /* font-family: 'Kodchasan', sans-serif; */
+  /* word-spacing: 0px; */
+}
+
+a {
+  color: #c9c582;
+}
+
+#home-link {
+  float: right;
+  top: 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+main {
+  margin-left: 1%;
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  width: 75%;
+}
+
+table {
+  border-collapse: collapse;
+  color: black;
+}
+
+thead {
+  background-color: gray;
+}
+
+#movelist thead:hover {
+  cursor: pointer;
+}
+
+tr, td, th {
+  border: 1px solid white;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: #AAA;
+}
+
+tbody tr:nth-child(2n).preview {
+  background-color: #9ab1d6;
+}
+
+tbody tr:nth-child(2n + 1) {
+  background-color: #CCC;
+}
+
+tbody tr:nth-child(2n + 1).preview {
+  background-color: #b0c4e5;
+}
+
+#charPanels {
+  display: inline-block;
+  width: 15%;
+  min-width: 180px;
+}
+
+#charPanels a {
+  width: 100%;
+}
+
+.edit-td {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.edit-icon {
+  max-height: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.edit-icon:hover {
+  cursor: pointer;
+}
+
+.modal-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.modal-content {
+  background-color: rgba(255,255,255,1.0);
+  color: black;
+  width: 60%;
+  min-width: 400px;
+  min-height: 60%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.modal-content * {
+  margin: auto;
+}
+
+.modal-content table {
+  margin-top: 2em;
+}
+
+.modal-content img {
+  display: block;
+  min-width: 400px;
+  width: 60%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  margin: 10px 5px 0;
+  max-width: 180px;
+  width: 20%;
+}
+
+button {
+  border-radius: 3px;
+  height: 2em;
+}
+
+button.submit {
+  background-color: #9ad1b5;
+}
+
+button.submit:hover {
+  background-color: #62c995;
+}
+
+button.cancel:hover {
+  background-color: #e06464;
+}
+
+.modal-background.hidden {
+  display: none;
+}
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail div {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 2em;
+  color: #DDDDDD;
+  font: sans-serif;
+  text-shadow: 1px 1px 3px black;
+}

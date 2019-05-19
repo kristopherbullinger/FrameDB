@@ -1,0 +1,12 @@
+<span id="charPanels">
+  <% characters.forEach(character => { %>
+    <a href=<%= `/tekken7/${character.label}` %>>
+      <div class="thumbnail">
+        <div>
+          <%= character.displayName %>
+        </div>
+        <img src=<%= `/char_thumbnails/${character.label}_thumbnail.png`%> alt=<%= `${character.displayName}` %>>
+      </div>
+    </a>
+  <% }) %>
+</span>

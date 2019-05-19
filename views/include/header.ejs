@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><% if (character) { %>
+          <%= `${character.displayName}` %>
+          <% } else { %>
+          <%=  "Tekken7Database" %>
+          <% } %>
+    </title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+  </head>
+  <%- include('../charPanels.ejs') %>
+  <body>
