@@ -20,6 +20,8 @@ the character within the "characters" collection of the "T7Movelists" database.
 --Use--
 
 Fetching to the endpoint 'http://localhost:3000/tekken7' will return the index page from which you can navigate to any character's frame data.
+
 Fetching directly to 'http://localhost:3000/tekken7/:character' will display a sortable movelist, allowing the user to publish changes to the move by clicking the icon to the right.
+
 //TODO: Implement user authentication and authorization for publishing privileges.
 Fetching to http://localhost:3000/dev/tekken7' or 'http://localhost:3000/dev/tekken7/:character' will instead return JSON data for all characters or a specified character, respectively, effectively serving as a T7 API.
