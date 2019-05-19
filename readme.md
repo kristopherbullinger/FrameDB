@@ -12,10 +12,12 @@ https://docs.mongodb.com/manual/installation/
 
 setTimeout(initializeDb, 5000);
 
+and run npm start.
+
 This ensures that the database has time to start up, after which it will read each file in './character-data' and generate a document for
 the character within the "characters" collection of the "T7Movelists" database.
 
-4. Now that the database is populated, remove the setTimeout line and run npm start.
+4. Now that the database is populated, remove the setTimeout line before starting the program again.
 
 --Use--
 
