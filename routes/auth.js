@@ -2,6 +2,7 @@ const { getDb } = require('../util/db.js');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const characters = require('../util/chars.js');
 
 //app.use("/auth") =>
 

@@ -1,7 +1,5 @@
 const handlePost = (e) => {
-  console.log("submit");
   if (e.target.classList.contains("submit")) {
-    console.log("trying...");
     const params = {notation: modalContent.querySelector("h2").innerText};
     const char = document.querySelector("main").dataset.label;
     let inputs = selectedMoveTableBody.querySelectorAll("input");

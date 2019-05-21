@@ -20,6 +20,7 @@ router.get("/:char/:tag?", (req, res, next) => {
 });
 
 router.post("/:char", (req, res, next) => {
+  if (!req.session.loggedIn) return res.render("error.ejs");
   const { char } = req.params;
   const updateFields = req.body;
 

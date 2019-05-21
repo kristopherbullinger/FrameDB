@@ -1,3 +1,8 @@
 </body>
 <script type="text/javascript" src="/js/script.js"></script>
+<% if (locals.loggedIn) { %>
+  <script type="text/javascript" src="/js/validSession.js"></script>
+<% } else { %>
+    <script type="text/javascript" src="/js/loginForm.js"></script>
+<% } %>
 </html>
