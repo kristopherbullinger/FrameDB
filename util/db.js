@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const fs = require('fs');
+let bcrypt = require('bcryptjs');
 
 
 let _db;
@@ -47,8 +48,18 @@ client.connect( err => {
 //   console.log("Database restored!");
 // }
 
+const initializeUser = async () => {
+  const pw = "t7dbAdminPWX!X";
+  const username = "skeletizzle666";
+  const salt = bcrypt.genSaltSync(12);
+  const hash = bcrypt.hashSync(pw, salt);
+  await getDb().collection("users").insertOne({username, password: hash});
+  console.log("User Inserted");
+};
+
+
 const getDb = () => _db;
 
-//setTimeout(restoreBackup, 5000);
+//setTimeout(initializeUser, 5000);
 
 exports.getDb = getDb;
