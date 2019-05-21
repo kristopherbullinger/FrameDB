@@ -24,6 +24,6 @@ app.use("/tekken7", t7Router);
 app.use("/dev/tekken7", t7DevRouter);
 
 app.use("/", (req, res) => {
-  res.status(404).send("<h1>Bad Request</h1>");
+  res.status(404).render("error.ejs");
 });
 app.listen(3000);
