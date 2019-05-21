@@ -41,6 +41,7 @@ thead {
 
 tr, td, th {
   border: 1px solid white;
+  padding: 1px 3px;
 }
 
 tbody tr:nth-child(2n) {
@@ -118,6 +119,10 @@ tbody tr:nth-child(2n + 1).preview {
 
 .modal-content table {
   margin-top: 2em;
+}
+
+.modal-content td, .modal-content th {
+  border-color: #999999;
 }
 
 .modal-content img {

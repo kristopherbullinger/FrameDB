@@ -1,3 +1,10 @@
+const appendLocalsToViews = (req, res, next) => {
+  if (req.session) {
+    res.locals.loggedIn = req.session.loggedIn;
+  }
+  next();
+};
+
 const inputValidator = requestBody => {
   const validKeys = ["properties", "notation", "hit_level",  "damage", "speed", "on_block", "on_hit", "on_ch", "active_frames", "notes"];
   let inputKeys = Object.keys(requestBody);
@@ -37,3 +44,4 @@ const validateHitLevel = val => {
 
 
 exports.inputValidator = inputValidator;
+exports.appendLocalsToViews = appendLocalsToViews;

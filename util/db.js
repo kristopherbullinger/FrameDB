@@ -1,11 +1,12 @@
 const MongoClient = require('mongodb').MongoClient;
 const fs = require('fs');
-let bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+const MONGODB_URI = "mongodb://localhost:27017/T7Movelists";
 
 
 let _db;
 
-const client = new MongoClient("mongodb://localhost:27017", {useNewUrlParser: true});
+const client = new MongoClient(MONGODB_URI, {useNewUrlParser: true});
 
 client.connect( err => {
   if (err) throw err;
@@ -58,8 +59,9 @@ const initializeUser = async () => {
 };
 
 
-const getDb = () => _db;
+const getDb = () => _db
 
 //setTimeout(initializeUser, 5000);
 
 exports.getDb = getDb;
+exports.MONGODB_URI = MONGODB_URI;

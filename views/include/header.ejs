@@ -14,10 +14,9 @@
   <body>
   <nav>
     <a href="/tekken7" class="nav-link">Home</a>
+  <% if (!locals.loggedIn) {%>
     <a href="/tekken7" class="nav-link">Log In</a>
+  <% } else { %>
+    <a href="/auth/logout" class="nav-link">Log Out</a>
+  <% } %>
   </nav>
-  <form class="" action="/auth/login" method="post">
-    <input type="text" name="username">
-    <input type="text" name="password">
-     <button type="submit">Submit</button>
-  </form>

@@ -8,16 +8,20 @@ const bcrypt = require('bcryptjs');
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   const user = await getDb().collection("users").findOne({username});
-  console.log(user);
   if (user) {
     const authenticated = await bcrypt.compare(password, user.password);
-    console.log(authenticated);
     if (authenticated) {
+      req.session.loggedIn = true;
       return res.redirect("/");
     }
     return res.status(401).send();
   }
   return res.status(401).send();
+});
+
+router.get("/logout", async (req, res, next) => {
+  await req.session.destroy();
+  res.redirect("/");
 });
 
 
