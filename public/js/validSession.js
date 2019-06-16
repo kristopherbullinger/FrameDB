@@ -21,4 +21,34 @@ const handlePost = (e) => {
   }
 };
 
+const toggleEdit = e => {
+  if (e.target.classList.contains("edit-icon")) {
+    let elementsToHide = [];
+    elementsToHide.push(modalContent.querySelector(".button-container"));
+    for (let i=0; i < selectedMoveTableBody.children.length; i++) {
+      //add input-field TRs to hide list
+      elementsToHide.push(selectedMoveTableBody.children[i].children[2]);
+    }
+    //add third table header column
+    elementsToHide.push(selectedMoveTableBody.parentElement.children[0].children[0].children[2]);
+    //show or hide each el based on state.edit value
+    elementsToHide.forEach(el => {
+      if (state.edit) {
+        el.classList.add("hidden");
+      } else {
+        el.classList.remove("hidden");
+      }
+    });
+    //toggle edit mode
+    state.edit = !state.edit
+    //update text content of button and span
+    if (state.edit) {
+      modalContent.querySelector("span.edit-icon").innerText = "Cancel";
+    } else {
+      modalContent.querySelector("span.edit-icon").innerText = "Edit";
+    }
+  }
+};
+
 document.addEventListener("click", handlePost);
+document.addEventListener("click", toggleEdit);

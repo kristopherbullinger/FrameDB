@@ -10,7 +10,8 @@ const selectedMoveTableBody = modalContent.querySelector("tbody");
 const headers = ["Notation", "Hit Level", "Damage", "Speed", "Block", "Hit", "Counterhit"];
 
 let state = {
-  reverse: false
+  reverse: false,
+  edit: false
 };
 
 const removeRows = () => {
@@ -51,13 +52,12 @@ const handleHeaderClick = e => {
   state.reverse = !state.reverse;
 };
 
-const handleEditClick = e => {
-  if (e.target.classList.contains("edit-icon")) {
-    populateModal(e.target.parentElement.parentElement);
-  } else if (e.target.classList.contains("cancel")) {
-    hideModal();
+const handleRowClick = e => {
+  if (e.target.tagName === "TD" && e.target.parentElement.classList.contains("move")) {
+    let targetRow = e.target.parentElement;
+    populateModal(targetRow);
   }
-}
+};
 
 const sortByFrameData = (nodes, columnIndex) => {
   let modifier = state.reverse ? 1 : -1;
@@ -88,13 +88,16 @@ const sortByDmg = (movelist, columnIndex)=> {
 };
 
 const populateModal = node => {
-  //node is a tr
+  //node is a tr from the main move table
   modalContent.querySelector("h2").innerText = node.children[0].innerText;
   modalContent.querySelector("img").src = node.dataset.preview;
   modalBackground.classList.remove("hidden");
   for (let i = 0; i < selectedMoveTableBody.children.length; i++) {
+    //iterate over each row in the modal table
     let row = selectedMoveTableBody.children[i];
+    //match text content of first child to element of headers
     let columnIndex = headers.indexOf(row.children[0].innerText);
+    //get value of property from main table
     let propertyValue = node.children[columnIndex].innerText;
     try {
       row.children[1].innerText = propertyValue;
@@ -116,4 +119,9 @@ const hideModal = () => {
 };
 
 document.querySelector("thead").addEventListener("click", handleHeaderClick);
-document.addEventListener("click", handleEditClick);
+document.addEventListener("click", handleRowClick);
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("cancel")) {
+    modalBackground.classList.add("hidden");
+  }
+});

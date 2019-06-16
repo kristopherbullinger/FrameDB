@@ -74,7 +74,6 @@ tbody tr:nth-child(2n + 1).preview {
   width: 100%;
 }
 
-
 .button-container {
   display: flex;
   justify-content: center;
@@ -85,13 +84,14 @@ tbody tr:nth-child(2n + 1).preview {
   border: 1px solid black;
 }
 
-.edit-icon {
-  max-height: 20px;
-  border-radius: 50%;
-  background-color: white;
+span.edit-icon {
+  padding: 5px;
+  float: right;
+  color: #b0c4e5;
+  text-decoration: underline;
 }
 
-.edit-icon:hover {
+span.edit-icon:hover {
   cursor: pointer;
 }
 
@@ -183,12 +183,12 @@ button.submit:hover {
   background-color: #62c995;
 }
 
-button.cancel:hover {
+button.edit-icon:hover {
   background-color: #e06464;
 }
 
 .hidden {
-  display: none !important; 
+  display: none !important;
 }
 
 .thumbnail {

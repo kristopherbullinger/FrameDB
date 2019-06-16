@@ -16,7 +16,21 @@
     <a href="/tekken7" class="nav-link">Home</a>
   <% if (locals.loggedIn) {%>
     <a href="/auth/logout" class="nav-link">Log Out</a>
-    <% } else { %>
-      <a href="/auth/login" class="nav-link" id="login">Log In</a>
-    <% } %>
+  <% } else { %>
+    <a href="/auth/login" class="nav-link" id="login">Log In</a>
+  <% } %>
   </nav>
+  <% if(!locals.loggedIn) { %>
+  <div class="login-form-container hidden">
+    <form class="login-form" action="/auth/login" method="POST">
+      <label for="username">username</label><br>
+      <input name="username" value=""><br>
+      <label for="password">password</label><br>
+      <input name="password" value=""><br>
+      <div class="button-container">
+        <button type="submit" class="submit" style="min-width: 40%;">Log In</button>
+        <button class="cancel" form="null" style="min-width: 40%;">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <% } %>

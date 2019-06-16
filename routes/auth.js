@@ -7,7 +7,7 @@ const characters = require('../util/chars.js');
 //app.use("/auth") =>
 
 router.post("/login", async (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password, location } = req.body;
   const user = await getDb().collection("users").findOne({username});
   if (user) {
     const authenticated = await bcrypt.compare(password, user.password);

@@ -12,12 +12,11 @@
         <th>Block</th>
         <th>Hit</th>
         <th>Counterhit</th>
-        <th class="edit-td"></th>
       </tr>
     </thead>
     <tbody>
       <% character.movelist.forEach(move => { %>
-        <tr data-preview=<%= move.preview_url ? move.preview_url : "/img/no_preview.png" %> class=<%= move.preview_url ? "preview" : "no-preview" %>>
+        <tr data-preview=<%= move.preview_url ? move.preview_url : "/img/no_preview.png" %> class="move <%= move.preview_url ? "preview" : "no-preview" %>">
           <td><%= move.notation %></td>
           <td><%= move.hit_level %></td>
           <td><%= move.damage %></td>
@@ -25,9 +24,6 @@
           <td><%= move.on_block %></td>
           <td><%= move.on_hit %></td>
           <td><%= move.on_ch %></td>
-          <td class="edit-td">
-            <img src="/img/play.jpg" alt="edit move" class="edit-icon">
-          </td>
         </tr>
       <% }) %>
     </tbody>
