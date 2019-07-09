@@ -3,7 +3,6 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const MONGODB_URI = "mongodb://localhost:27017/T7Movelists";
 
-
 let _db;
 
 const client = new MongoClient(MONGODB_URI, {useNewUrlParser: true});
@@ -49,19 +48,19 @@ client.connect( err => {
 //   console.log("Database restored!");
 // }
 
-const initializeUser = async () => {
-  const pw = "t7dbAdminPWX!X";
-  const username = "skeletizzle666";
-  const salt = bcrypt.genSaltSync(12);
-  const hash = bcrypt.hashSync(pw, salt);
-  await getDb().collection("users").insertOne({username, password: hash});
-  console.log("User Inserted");
-};
+// const initializeUser = async () => {
+//   const pw = "t7dbAdminPWX!X";
+//   const username = "skeletizzle666";
+//   const salt = bcrypt.genSaltSync(12);
+//   const hash = bcrypt.hashSync(pw, salt);
+//   await getDb().collection("users").insertOne({username, password: hash});
+//   console.log("User Inserted");
+// };
 
 
 const getDb = () => _db
 
-//setTimeout(initializeUser, 5000);
+//setTimeout(initializeDb, 5000);
 
 exports.getDb = getDb;
 exports.MONGODB_URI = MONGODB_URI;

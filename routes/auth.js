@@ -15,9 +15,8 @@ router.post("/login", async (req, res, next) => {
       req.session.loggedIn = true;
       return res.redirect("/");
     }
-    return res.status(401).send();
   }
-  return res.status(401).send();
+  return res.redirect("/tekken7");
 });
 
 router.get("/logout", async (req, res, next) => {

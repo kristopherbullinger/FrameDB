@@ -79,16 +79,12 @@ tbody tr:nth-child(2n + 1).preview {
   justify-content: center;
 }
 
-.edit-td {
-  background-color: black;
-  border: 1px solid black;
-}
-
 span.edit-icon {
   padding: 5px;
-  float: right;
   color: #b0c4e5;
   text-decoration: underline;
+  position: absolute;
+  right: 0;
 }
 
 span.edit-icon:hover {
@@ -138,6 +134,7 @@ span.edit-icon:hover {
   min-height: 60%;
   margin: auto;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .modal-content * {
