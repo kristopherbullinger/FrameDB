@@ -100,6 +100,8 @@ const populateModal = node => {
     //get value of property from main table
     let propertyValue = node.children[columnIndex].innerText;
     try {
+      modalContent.querySelector("#preview_url input").placeholder = node.dataset.preview
+      modalContent.querySelector("#preview_url input").value = node.dataset.preview
       row.children[1].innerText = propertyValue;
       row.querySelector("input").value = propertyValue;
     } catch {

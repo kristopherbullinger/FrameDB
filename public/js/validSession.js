@@ -7,6 +7,7 @@ const handlePost = (e) => {
       let { name, value } = inputs[i];
       params[name] = value.trim();
     }
+    params.preview_url = modalContent.querySelector("#preview_url input").value;
     fetch(`http://localhost:3000/tekken7/${char}`, {method: "POST",
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(params)
@@ -31,6 +32,8 @@ const toggleEdit = e => {
     }
     //add third table header column
     elementsToHide.push(selectedMoveTableBody.parentElement.children[0].children[0].children[2]);
+    //add preview input box
+    elementsToHide.push((modalContent).querySelector("#preview_url"));
     //show or hide each el based on state.edit value
     elementsToHide.forEach(el => {
       if (state.edit) {

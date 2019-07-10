@@ -74,6 +74,16 @@ tbody tr:nth-child(2n + 1).preview {
   width: 100%;
 }
 
+#preview_url {
+  width: 80%;
+  text-align: center;
+  margin: 0.5em auto 0.5em;
+}
+
+#preview_url input {
+  width: 100%;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
@@ -142,7 +152,7 @@ span.edit-icon:hover {
 }
 
 .modal-content table {
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 
 .modal-content td, .modal-content th {
