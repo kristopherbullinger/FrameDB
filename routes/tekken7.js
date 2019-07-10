@@ -13,7 +13,7 @@ router.get("/", (req,res,next) => {
 router.get("/:char/:tag?", (req, res, next) => {
   let {char, tag} = req.params;
   char = char.toLowerCase();
-  if (!characters.find(c => c.label === char)) next();
+  if (!characters.find(c => c.label === char)) return res.redirect("/");
   getDb().collection("characters").findOne({label: char}).then(character => {
     res.render('characterTable.ejs', {characters, character: character})
   })
