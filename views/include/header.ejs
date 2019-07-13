@@ -15,6 +15,7 @@
   <nav>
     <a href="/tekken7" class="nav-link">Home</a>
   <% if (locals.loggedIn) {%>
+    <a href="/auth/generateToken" class="nav-link" id="generate-token">Generate Invite Link</a>
     <a href="/auth/logout" class="nav-link">Log Out</a>
   <% } else { %>
     <a href="/auth/login" class="nav-link" id="login">Log In</a>

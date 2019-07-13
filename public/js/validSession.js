@@ -53,5 +53,25 @@ const toggleEdit = e => {
   }
 };
 
+const generateToken = async (e) => {
+  e.preventDefault();
+  let response = await fetch("http://localhost:3000/auth/generate-token");
+  if (response.ok) {
+    //render jwt somehow ...
+    let { token } = await response.json();
+    let linkNode = document.createElement("input");
+    document.body.appendChild(linkNode);
+    linkNode.classList.add("hidden");
+    linkNode.value = token;
+    linkNode.select();
+    document.execCommand("copy");
+    console.log(token, linkNode.value);
+  } else {
+    console.log("error fetching token");
+  }
+}
+
+
+document.querySelector("#generate-token").addEventListener("click", generateToken)
 document.addEventListener("click", handlePost);
 document.addEventListener("click", toggleEdit);
