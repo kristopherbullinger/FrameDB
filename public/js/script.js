@@ -92,6 +92,7 @@ const populateModal = node => {
   modalContent.querySelector("h2").innerText = node.children[0].innerText;
   modalContent.querySelector("img").src = node.dataset.preview;
   modalBackground.classList.remove("hidden");
+  console.log("hi");
   for (let i = 0; i < selectedMoveTableBody.children.length; i++) {
     //iterate over each row in the modal table
     let row = selectedMoveTableBody.children[i];
@@ -99,13 +100,13 @@ const populateModal = node => {
     let columnIndex = headers.indexOf(row.children[0].innerText);
     //get value of property from main table
     let propertyValue = node.children[columnIndex].innerText;
+    row.children[1].innerText = propertyValue;
     try {
+      row.querySelector("input").value = propertyValue;
       modalContent.querySelector("#preview_url input").placeholder = node.dataset.preview
       modalContent.querySelector("#preview_url input").value = node.dataset.preview
-      row.children[1].innerText = propertyValue;
-      row.querySelector("input").value = propertyValue;
     } catch {
-      continue;
+      console.log("No");
     }
   }
 };
